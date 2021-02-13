@@ -174,7 +174,7 @@ function main() {
 
 function drawDotGrid() {
     let dot;
-    let funWithBlocks = document.getElementById('fun-with-blocks');
+    let funWithBlocks = document.getElementById('dot-grid');
     squareSize = 30, i = 1, j = 1;
     while (i * squareSize < window.innerHeight * 0.895) {
         while (j * squareSize < window.innerWidth) {

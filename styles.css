@@ -6,8 +6,12 @@ img {
     max-width: 100%;
 }
 
+table.table.table-sm {
+    border-bottom: #cee39d;
+}
+
 .navbar {
-    background-color: #05486e;
+    background: #05486e;
     z-index: 10001;
 }
 
@@ -49,6 +53,10 @@ section {
     background-color: #f8b195;
 }
 
+.section-1-blend-footer {
+    background: linear-gradient(#cee39d, #f8b195);
+}
+
 #before-footer {
     margin-top: 10rem;
     color: #05486e;
@@ -67,6 +75,16 @@ footer {
     z-index: -10000;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+.animate-block {
+    transition-property: transform;
+    transition-duration: 0.5s;
+}
+
+.animate-block:hover {
+    opacity: 100%;
+    transform: scale(1.2);
 }
 
 .one-line-intro-container {
@@ -90,3 +108,7 @@ footer {
     text-align: center;
     margin: 0px;
 }
+
+/* .perspective {
+    transform: rotate3d(-1, 0.2, 0.5, 75deg);
+} */
