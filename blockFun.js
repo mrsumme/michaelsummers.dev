@@ -4,7 +4,8 @@ let config = {
     quadrants: [],
     z_block: 5000,
     z_shadow: 3000,
-    intervals: []
+    intervals: [],
+    timeOfDay: 0
 }
 
 let blockChainCount = 0;
