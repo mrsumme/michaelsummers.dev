@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Raleway&display=swap');
+
 body {
+    font-family: 'Raleway', sans-serif;
     overflow-x: hidden;
 }
 
 img {
     max-width: 100%;
+}
+
+h2 {
+    font-family: 'DotGothic16', sans-serif;
 }
 
 table.table.table-sm {
@@ -13,6 +20,20 @@ table.table.table-sm {
 .navbar {
     background: #05486e;
     z-index: 10001;
+}
+
+/* .navbar-brand {
+    font-size: x-large;
+} */
+
+.title-case {
+    font-size:xxx-large;
+    
+}
+
+nav a {
+    font-family: 'DotGothic16', sans-serif;
+    font-size: larger;
 }
 
 section {
@@ -103,12 +124,21 @@ footer {
 
 #one-line-intro {
     color: #05486e;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DotGothic16', sans-serif;
     font-weight: 700;
     text-align: center;
     margin: 0px;
 }
 
+#time {
+    background-color: #05486e;
+    color: white;
+}
+
 /* .perspective {
     transform: rotate3d(-1, 0.2, 0.5, 75deg);
+} */
+
+/* .perspective {
+    transform: skew(-60deg, 0deg) translate(50%, 0px);
 } */
