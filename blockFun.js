@@ -1,3 +1,12 @@
+let config = {
+    blockChainCount: 0,
+    maxChainCount: 4,
+    quadrants: [],
+    z_block: 5000,
+    z_shadow: 3000,
+    intervals: []
+}
+
 let blockChainCount = 0;
 let maxChainCount = 4;
 let quadrants;
@@ -6,8 +15,8 @@ let z_shadow = 3000;
 let intervals = [];
 
 function setQuadrants() {
-    quadrants = [[0,0], [0,1], [1,0], [1,1]];
-    shuffleArr(quadrants);
+    config.quadrants = [[0,0], [0,1], [1,0], [1,1]];
+    shuffleArr(config.quadrants);
 }
 
 function shuffleArr(arr) {
@@ -27,31 +36,31 @@ function shuffleArr(arr) {
 function drawStart(appElement) {
     let startBlock = document.createElement('img');
     let shadow = document.createElement('img');
-    let quadrantLength = window.innerWidth  / Math.sqrt(maxChainCount);
-    let quadrantHeight = window.innerHeight  / Math.sqrt(maxChainCount);
+    let quadrantLength = window.innerWidth  / Math.sqrt(config.maxChainCount);
+    let quadrantHeight = window.innerHeight  / Math.sqrt(config.maxChainCount);
     let startCoor = [
-        (Math.random() * quadrantLength * 0.3) + (quadrantLength * (quadrants[0][0] + 0.35)), 
-        (Math.random() * quadrantHeight * 0.3) + (quadrantHeight * (quadrants[0][1] + 0.35)),
+        (Math.random() * quadrantLength * 0.3) + (quadrantLength * (config.quadrants[0][0] + 0.35)), 
+        (Math.random() * quadrantHeight * 0.3) + (quadrantHeight * (config.quadrants[0][1] + 0.35)),
         0
     ];
-    quadrants.shift();
+    config.quadrants.shift();
     // startBlock element settings
     startBlock.src = './assets/SVG/Asset 21.svg';
     startBlock.style.maxWidth = '50px';
     startBlock.style.position = 'absolute';
     startBlock.style.left = `${startCoor[0]}px`;
     startBlock.style.top = `${startCoor[1]}px`;
-    startBlock.style.zIndex = z_block;
+    startBlock.style.zIndex = config.z_block;
     // shadow element settings
     shadow.src = './assets/SVG/Asset 38.svg';
     shadow.style.maxWidth = '50px';
     shadow.style.position = 'absolute';
     shadow.style.left = `${startCoor[0] - 31}px`;
     shadow.style.top = `${startCoor[1] + 29}px`;
-    shadow.style.zIndex = z_shadow;
+    shadow.style.zIndex = config.z_shadow;
     appElement.appendChild(shadow);
     appElement.appendChild(startBlock);
-    startCoor.push(z_block);
+    startCoor.push(config.z_block);
     startCoor.push([startCoor[0] - 31, startCoor[1] + 29]);
     return startCoor;
 }
@@ -77,16 +86,16 @@ function drawNextCube(appElement, previousCube) {
     nextBlock.src = './assets/SVG/Asset 21.svg';
     nextBlock.style.maxWidth = '50px';
     nextBlock.style.position = 'absolute';
-    z_block++;
-    nextBlock.style.zIndex = z_block;
+    config.z_block++;
+    nextBlock.style.zIndex = config.z_block;
     // shadow
     console.log(previousCube[4]);
     let shadow = document.createElement('img');
     shadow.src = './assets/SVG/Asset 38.svg';
     shadow.style.maxWidth = '50px';
     shadow.style.position = 'absolute';
-    z_shadow++;
-    shadow.style.zIndex = z_shadow;
+    config.z_shadow++;
+    shadow.style.zIndex = config.z_shadow;
 
     let direction = drawWhichWay(previousCube[2]);
     let newCoors = [];
@@ -157,14 +166,14 @@ function main() {
         blocksPerChain++;
         if (blocksPerChain >= 6) {
             clearInterval(intervalID);
-            blockChainCount++;
-            if (blockChainCount >= maxChainCount) {
+            config.blockChainCount++;
+            if (config.blockChainCount >= config.maxChainCount) {
                 funWithBlocks.innerHTML = '';
                 setQuadrants();
                 drawDotGrid();
-                blockChainCount = 0;
-                z_block = 5000;
-                z_shadow = 3000;
+                config.blockChainCount = 0;
+                config.z_block = 5000;
+                config.z_shadow = 3000;
             }
             main();
         }
@@ -200,9 +209,9 @@ function windowResizeHandler() {
     animation.innerHTML = '';
     setQuadrants();
     drawDotGrid();
-    blockChainCount = 0;
-    z_block = 5000;
-    z_shadow = 3000;
+    config.blockChainCount = 0;
+    config.z_block = 5000;
+    config.z_shadow = 3000;
     main();
 }
 window.onresize = windowResizeHandler;
