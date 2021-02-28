@@ -45,6 +45,7 @@ section {
 
 .section-1 {
     background-color: #cee39d;
+    color: #05486e;
     padding-top: 200px;
 }
 
@@ -119,12 +120,13 @@ footer {
 
 #one-line-intro-background {
     background-color: #cee39d;
-    opacity: 0.5;
+    border-radius: 5px;
+    opacity: 0.75;
 }
 
 #one-line-intro {
     color: #05486e;
-    font-family: 'DotGothic16', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     text-align: center;
     margin: 0px;
@@ -142,3 +144,20 @@ footer {
 /* .perspective {
     transform: skew(-60deg, 0deg) translate(50%, 0px);
 } */
+
+/* about page */
+#self-portrait {
+    border: 8px solid  #05486e;
+}
+
+#portrait-block-1 {
+    width: 50%;
+}
+
+#portrait-block-2 {
+    width: 50%;
+}
+
+#portrait-block-3 {
+    width: 50%;
+}
