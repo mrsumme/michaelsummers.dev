@@ -161,3 +161,17 @@ footer {
 #portrait-block-3 {
     width: 50%;
 }
+
+#github {
+    width: 50%;
+    left: -85%;
+    top: 10%;
+    fill: #cee39d;
+}
+
+#linkedin {
+    width: 50%;
+    left: -85%;
+    top: 10%;
+    color: 
+}
