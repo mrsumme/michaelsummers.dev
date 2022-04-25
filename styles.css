@@ -120,6 +120,7 @@ footer {
 #one-line-intro-background {
     background-color: #cee39d;
     opacity: 0.5;
+    border-radius: 1rem;
 }
 
 #one-line-intro {

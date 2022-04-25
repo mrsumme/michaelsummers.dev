@@ -5,7 +5,9 @@ let config = {
     z_block: 5000,
     z_shadow: 3000,
     intervals: [],
-    timeOfDay: 0
+    timeOfDay: 'morning',
+    blockSVG: './assets/SVG/Asset 21.svg',
+    shadowSVG: './assets/SVG/Asset 38.svg'
 }
 
 let blockChainCount = 0;
@@ -46,14 +48,14 @@ function drawStart(appElement) {
     ];
     config.quadrants.shift();
     // startBlock element settings
-    startBlock.src = './assets/SVG/Asset 21.svg';
+    startBlock.src = config.blockSVG;
     startBlock.style.maxWidth = '50px';
     startBlock.style.position = 'absolute';
     startBlock.style.left = `${startCoor[0]}px`;
     startBlock.style.top = `${startCoor[1]}px`;
     startBlock.style.zIndex = config.z_block;
     // shadow element settings
-    shadow.src = './assets/SVG/Asset 38.svg';
+    shadow.src = config.shadowSVG;
     shadow.style.maxWidth = '50px';
     shadow.style.position = 'absolute';
     shadow.style.left = `${startCoor[0] - 31}px`;
@@ -84,15 +86,14 @@ function drawWhichWay(lastMovement) {
 function drawNextCube(appElement, previousCube) {
     // cube
     let nextBlock = document.createElement('img');
-    nextBlock.src = './assets/SVG/Asset 21.svg';
+    nextBlock.src = config.blockSVG;
     nextBlock.style.maxWidth = '50px';
     nextBlock.style.position = 'absolute';
     config.z_block++;
     nextBlock.style.zIndex = config.z_block;
     // shadow
-    console.log(previousCube[4]);
     let shadow = document.createElement('img');
-    shadow.src = './assets/SVG/Asset 38.svg';
+    shadow.src = config.shadowSVG;
     shadow.style.maxWidth = '50px';
     shadow.style.position = 'absolute';
     config.z_shadow++;
@@ -156,6 +157,38 @@ function drawNextCube(appElement, previousCube) {
     return newCoors;
 }
 
+function setTimeOfDay(time = new Date()) {
+    let timeSelect = document.getElementById('time');
+    let background = document.getElementById('fun-with-blocks');
+    let oneLineBackground = document.getElementById('one-line-intro-background')
+    let oneLineIntro = document.getElementById('one-line-intro');
+
+    if (time.getHours() >= 5 && time.getHours() < 12) {
+        config.blockSVG = './assets/SVG/Asset 21.svg';
+        config.shadowSVG = './assets/SVG/Asset 38.svg';
+        timeSelect.value = 'morning';
+        background.style.backgroundColor = '#cee39d';
+        oneLineBackground.style.backgroundColor = '#cee39d';
+        oneLineIntro.style.color = '#05486e';
+    }
+    else if (time.getHours() >= 12 && time.getHours() < 18) {
+        config.blockSVG = './assets/SVG/Asset 36.svg';
+        config.shadowSVG = './assets/SVG/Asset 39.svg';
+        timeSelect.value = 'afternoon';
+        background.style.backgroundColor = '#f8b195';
+        oneLineBackground.style.backgroundColor = 'rgb(181,112,132)';
+        oneLineIntro.style.color = 'white';
+    }
+    else if (time.getHours() >= 18 || time.getHours() < 5 ) {
+        config.blockSVG = './assets/SVG/Asset 20.svg';
+        config.shadowSVG = './assets/SVG/Asset 40.svg';
+        timeSelect.value = 'evening';
+        background.style.backgroundColor = '#05486e';
+        oneLineBackground.style.backgroundColor = 'rgb(62,93,123)';
+        oneLineIntro.style.color = 'white';
+    }
+}
+
 function main() {
     let funWithBlocks = document.getElementById('fun-with-blocks');
     let coordinates = []
@@ -217,6 +250,35 @@ function windowResizeHandler() {
 }
 window.onresize = windowResizeHandler;
 
+let timeSelect = document.getElementById('time');
+timeSelect.addEventListener('change', (e) => {
+    let time = new Date();
+    switch (e.target.value) {
+        case 'morning':
+            time.setHours(7);
+            break;
+        case 'afternoon':
+            time.setHours(14);
+            break;
+        case 'evening':
+            time.setHours(21);
+            break;
+    }
+    intervals.forEach((id) => {
+        clearInterval(id);
+    });
+    let animation = document.getElementById('fun-with-blocks');
+    animation.innerHTML = '';
+    setQuadrants();
+    drawDotGrid();
+    config.blockChainCount = 0;
+    config.z_block = 5000;
+    config.z_shadow = 3000;
+    setTimeOfDay(time);
+    main();
+})
+
 setQuadrants();
 drawDotGrid();
+setTimeOfDay();
 main();
