@@ -49,6 +49,7 @@ section {
 
 .section-1 {
     background-color: #cee39d;
+    color: #05486e;
     padding-top: 200px;
 }
 
@@ -151,7 +152,7 @@ footer {
 
 #one-line-intro {
     color: #05486e;
-    font-family: 'DotGothic16', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     text-align: center;
     margin: 0px;
