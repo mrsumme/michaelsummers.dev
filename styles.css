@@ -13,6 +13,10 @@ h2 {
     font-family: 'DotGothic16', sans-serif;
 }
 
+h3 {
+    font-family: 'Raleway', sans-serif;;
+}
+
 table.table.table-sm {
     border-bottom: #cee39d;
 }
@@ -54,6 +58,11 @@ section {
     color: #05486e;
 }
 
+.green-section-subheader {
+    font-size: 2rem;
+    color: #05486e;
+}
+
 .green-section-body {
     color: #05486e;
 }
@@ -65,6 +74,10 @@ section {
 
 .blue-section-body {
     color: whitesmoke;
+}
+
+.project-media {
+    display: block;
 }
 
 .section-2 {
@@ -79,6 +92,10 @@ section {
     background: linear-gradient(#cee39d, #f8b195);
 }
 
+#self-portrait {
+    border: 8px solid  #05486e;
+}
+
 #before-footer {
     margin-top: 10rem;
     color: #05486e;
@@ -86,6 +103,20 @@ section {
 
 footer {
     background-color: #f8b195;
+}
+
+.block {
+    transition: opacity 1s, top 1s;
+    opacity: 100;
+}
+
+.block-shadow {
+    transition: opacity 1s, top 1s;
+    opacity: 100;
+}
+
+.fade {
+    opacity: 0;
 }
 
 /* Building Blocks Animation */
@@ -109,19 +140,14 @@ footer {
     transform: scale(1.2);
 }
 
-.one-line-intro-container {
+#one-line-intro-container {
     position: absolute;
     width: 50%;
     left: 25%;
     top: 50%;
     padding: 10px;
     z-index: 10000;
-}
-
-#one-line-intro-background {
-    background-color: #cee39d;
-    border-radius: 5px;
-    opacity: 0.75;
+    border-radius: 50px;
 }
 
 #one-line-intro {
@@ -145,33 +171,118 @@ footer {
     transform: skew(-60deg, 0deg) translate(50%, 0px);
 } */
 
-/* about page */
-#self-portrait {
-    border: 8px solid  #05486e;
-}
-
-#portrait-block-1 {
-    width: 50%;
-}
-
-#portrait-block-2 {
-    width: 50%;
-}
-
-#portrait-block-3 {
-    width: 50%;
-}
-
-#github {
-    width: 50%;
-    left: -85%;
-    top: 10%;
-    fill: #cee39d;
-}
-
-#linkedin {
-    width: 50%;
-    left: -85%;
-    top: 10%;
-    color: 
-}
+/* Sun Ray Effects */
+.sun { 
+    z-index: 6001;
+    position: absolute;
+      top:0%;
+      left:95%;
+      right:0;
+      bottom:0;
+      margin: auto;  
+      width:70px;
+      height:70px;
+      border-radius:50%;	
+      background:#ffffbf;
+      opacity:0.9;			
+      box-shadow: 0px 0px 40px 15px #ffffbf;  
+    transition: top 1s ease-out, left 1s ease-out;
+  }
+  
+  .ray_box {
+      z-index: 6000;
+    position: absolute;
+    margin: auto;
+      top:0px;
+      left:0%;
+      right:0;
+      bottom:0;	
+    width:70px;  
+    -webkit-animation: ray_anim 120s linear infinite;
+    animation: ray_anim 120s linear infinite;
+  }
+  .ray {  
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+          background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+      margin-left:10px;
+      border-radius:80% 80% 0 0;
+      position:absolute;
+      opacity:0.1;
+  }
+  
+  .ray1 {    
+      height:170px;
+      width:30px;
+     -webkit-transform: rotate(180deg);
+      top:-175px;
+      left: 15px;
+  }
+  .ray2 {
+      height:100px;
+      width:8px;
+     -webkit-transform: rotate(220deg);
+      top:-90px;
+      left: 75px;
+  }
+  .ray3 {
+      height:170px;
+      width:50px;
+     -webkit-transform: rotate(250deg);
+      top:-80px;
+      left: 100px;
+  }
+  .ray4 {
+      height:120px;
+      width:14px;
+     -webkit-transform: rotate(305deg);
+      top:30px;
+      left: 100px;
+  }
+  .ray5 {
+      height:140px;
+      width:30px;
+     -webkit-transform: rotate(-15deg);
+      top:60px;
+      left: 40px;
+  }
+  .ray6 {
+      height:90px;
+      width:50px;
+     -webkit-transform: rotate(30deg);
+      top:60px;
+      left: -40px;
+  }
+  .ray7 {
+      height:180px;
+      width:10px;
+     -webkit-transform: rotate(70deg);
+      top:-35px;
+      left: -40px;
+  }
+  .ray8 {
+      height:120px;
+      width:30px;
+     -webkit-transform: rotate(100deg);
+      top:-45px;
+      left:-90px;
+  }
+  .ray9 {
+      height:80px;
+      width:10px;
+     -webkit-transform: rotate(120deg);
+      top:-65px;
+      left:-60px;
+  }
+  .ray10 {
+      height:190px;
+      width:23px;
+     -webkit-transform: rotate(150deg);
+      top:-185px;
+      left: -60px;
+  }
+  
+  
+  @-webkit-keyframes ray_anim { 
+          0% { -webkit-transform: rotate(0deg); transform: rotate(0deg);}    
+      100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);}
+  }
