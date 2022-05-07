@@ -13,6 +13,10 @@ h2 {
     font-family: 'DotGothic16', sans-serif;
 }
 
+h3 {
+    font-family: 'Raleway', sans-serif;;
+}
+
 table.table.table-sm {
     border-bottom: #cee39d;
 }
@@ -53,6 +57,11 @@ section {
     color: #05486e;
 }
 
+.green-section-subheader {
+    font-size: 2rem;
+    color: #05486e;
+}
+
 .green-section-body {
     color: #05486e;
 }
@@ -66,6 +75,10 @@ section {
     color: whitesmoke;
 }
 
+.project-media {
+    display: block;
+}
+
 .section-2 {
     background-color: #05486e;
 }
@@ -76,6 +89,10 @@ section {
 
 .section-1-blend-footer {
     background: linear-gradient(#cee39d, #f8b195);
+}
+
+#self-portrait {
+    border: 8px solid  #05486e;
 }
 
 #before-footer {
